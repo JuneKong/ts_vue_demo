@@ -40,22 +40,10 @@
                 </a>
               </li>
               <li class="divider"></li>
-              <li @click="setCateId(0)">
+              <li v-for="item in this.$store.state.aHelper.getCateEnumData()" :key="item.id" @click="setCateId(item.id)">
                 <a>
-                  工作
-                  <span class="count badge">{{getCountByCateId(0)}}</span>
-                </a>
-              </li>
-              <li @click="setCateId(1)">
-                <a>
-                  生活
-                  <span class="count badge">{{getCountByCateId(1)}}</span>
-                </a>
-              </li>
-              <li @click="setCateId(2)">
-                <a>
-                  学习
-                  <span class="count badge">{{getCountByCateId(2)}}</span>
+                  {{item.value}}
+                  <span class="count badge">{{getCountByCateId(item.id)}}</span>
                 </a>
               </li>
             </ul>
@@ -94,5 +82,6 @@ export default class MenuBar extends Vue{
   setCateId(cid: any):void{
     this.$store.commit('setCateId', cid);
   }
+
 }
 </script>

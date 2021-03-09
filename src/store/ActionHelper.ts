@@ -84,6 +84,24 @@ class ActionHelper{
         let names: Array<string> = ['工作', '生活', '学习'];
         return names[tag];
     }
+
+    /**获取枚举数据 */
+    getCateEnumData():Array<any>{
+        let cateEnum: Array<any> = [];
+        for (const key in Categroy) {
+            let nKey: any = key;
+            if(isNaN(nKey)){
+                //转换类型，防止报错
+                let val:any = Categroy[key];
+                let value: Categroy = val;
+                cateEnum.push({
+                    id: value,
+                    value: this.getCateName(value)
+                });
+            }
+        }
+        return cateEnum;
+    }
 }
 
 export default ActionHelper;

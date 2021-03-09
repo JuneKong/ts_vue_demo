@@ -15,14 +15,8 @@
             <span class="caret"></span>
           </button>
           <ul class="dropdown-menu">
-            <li @click="setCateId(0)">
-              <a>工作</a>
-            </li>
-            <li @click="setCateId(1)">
-              <a>生活</a>
-            </li>
-            <li @click="setCateId(2)">
-              <a>学习</a>
+            <li v-for="item in this.$store.state.aHelper.getCateEnumData()" :key="item.id"  @click="setCateId(item.id)">
+              <a>{{item.value}}</a>
             </li>
           </ul>
         </div>
